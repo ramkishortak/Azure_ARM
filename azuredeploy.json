@@ -1,0 +1,62 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VM_IP.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
+    },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS1_v2"
+    },
+    "adminUserName": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "networkInterfaceId": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-03-30",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[parameters('vmSize')]"
+        },
+        "storageProfile": {
+          "osDisk": {
+            "osType": "Windows",
+            "name": "template-osDisk.f3adb05c-7848-4c7b-9694-57a5aea07368.vhd",
+            "createOption": "FromImage",
+            "image": {
+              "uri": "https://ramtestdisks855.blob.core.windows.net/system/Microsoft.Compute/Images/armcont/template-osDisk.f3adb05c-7848-4c7b-9694-57a5aea07368.vhd"
+            },
+            "vhd": {
+              "uri": "https://ramtestdisks855.blob.core.windows.net/vmcontainera98d1f50-986d-4a0b-ade4-91d5a32fe2e9/osDisk.a98d1f50-986d-4a0b-ade4-91d5a32fe2e9.vhd"
+            },
+            "caching": "ReadWrite"
+          }
+        },
+        "osProfile": {
+          "computerName": "[parameters('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        },
+        "networkProfile": {"networkInterfaces":[{"id":"[parameters('networkInterfaceId')]"}]},
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true,
+            "storageUri": "https://ramtestdiag886.blob.core.windows.net/"
+          }
+        },
+        "provisioningState": 0
+      },
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "eastus2",
+      "name": "[parameters('vmName')]"
+    }
+  ]
+}
