@@ -3,21 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
-      "type": "string",
-      "defaultValue": "ram_azure_arm_vm"
+      "type": "string"
     },
     "vmSize": {
       "type": "string",
       "defaultValue": "Standard_DS1_v2"
     },
     "adminUserName": {
-      "type": "string",
-      "defaultValue": "ram"
+      "type": "string"
     },
     "adminPassword": {
-      "type": "string",
-      "defaultValue": "celebal@1234"
+      "type": "securestring"
     },
+    "networkInterfaceId": {
+      "type": "string"
+    }
+  },
   "resources": [
     {
       "apiVersion": "2017-03-30",
