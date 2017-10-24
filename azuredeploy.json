@@ -4,7 +4,7 @@
   "parameters": {
     "vmName": {
       "type": "string",
-      "value": "ram_azure_arm_vm"
+      "defaultValue": "ram_azure_arm_vm"
     },
     "vmSize": {
       "type": "string",
@@ -12,11 +12,11 @@
     },
     "adminUserName": {
       "type": "string",
-      "value": "ram"
+      "defaultValue": "ram"
     },
     "adminPassword": {
       "type": "string",
-      "value": "celebal@1234"
+      "defaultValue": "celebal@1234"
     },
   "resources": [
     {
