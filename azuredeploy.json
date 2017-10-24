@@ -3,18 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
-      "type": "string",
+      "type": "string"
     },
     "vmSize": {
       "type": "string",
       "defaultValue": "Standard_DS1_v2"
     },
     "adminUserName": {
-      "type": "string",
+      "type": "string"
     },
     "adminPassword": {
-      "type": "string",
+      "type": "securestring"
     },
+    "networkInterfaceId": {
+      "type": "string"
+    }
+  },
   "resources": [
     {
       "apiVersion": "2017-03-30",
